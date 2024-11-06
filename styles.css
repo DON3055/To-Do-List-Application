@@ -1,0 +1,230 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --background: radial-gradient(401px at 50.6% -0.3%, rgba(255, 255, 255, 0.31) 1.2%, rgb(36, 212, 219) 100.2%), ;
+
+    --containerBackground: rgba(255, 255, 255, 0.2);
+
+    --text: #2c3e50;
+
+    --placeholderText: rgba(44, 62, 80, 0.7);
+
+    --purpleGradient: linear-gradient(135deg, #6a11cb, #2575fc);
+
+    --tealGradient: linear-gradient(105.9deg, rgb(15, 209, 165) 3.8%, rgb(15, 157, 209) 20.8%, rgb(133, 13, 230) 51.9%, rgb(230, 13, 202) 73.1%, rgb(242, 180, 107) 94.1%);
+    
+    --shadow: rgba(0, 0, 0, 0.2);
+}
+
+body {
+    background: var(--background) no-repeat center center fixed;
+    background-size: cover;
+    color: var(--text);
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    max-width: 500px;
+    margin: 120px auto 0 auto;
+    padding: 20px;
+    background: var(--containerBackground);
+    border-radius: 20px;
+    box-shadow: 0 8px 32px var(--shadow);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.stats-container {
+    padding: 20px;
+    border-radius: 15px;
+    display: flex;
+    justify-content: space-between;
+    gap: 50px;
+    width: 100%;
+    background: rgba(255, 255, 255, 0.25);
+    box-shadow: 0 6px 15px var(--shadow);
+}
+
+.details {
+    width: 100%;
+}
+
+#progress {
+    width: 0%;
+    height: 10px;
+    background: var(--tealGradient);
+    border-radius: 10px;
+    transition: width 0.4s ease;
+    box-shadow: 0 4px 10px rgba(61, 57, 92, 0.547);
+}
+
+#progressBar {
+    width: 100%;
+    height: 8px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 5px;
+    margin-top: 20px;
+}
+
+#numbers {
+    width: 100px;
+    height: 100px;
+    background: var(--purpleGradient);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    box-shadow: 0 8px 20px rgba(106, 17, 203, 0.5);
+    transition: transform 0.3s;
+}
+
+#numbers:hover {
+    transform: scale(1.05);
+}
+
+form {
+    margin-top: 60px;
+    width: 100%;
+    display: flex;
+    gap: 10px;
+}
+
+input {
+    flex: 1;
+    padding: 16px;
+    background: rgba(255, 255, 255, 0.3);
+    border: 1px solid rgba(44, 62, 80, 0.2);
+    border-radius: 5px;
+    outline: none;
+    color: var(--text);
+    box-shadow: 0 2px 5px var(--shadow);
+    transition: background 0.3s ease;
+}
+
+input::placeholder {
+    color: var(--placeholderText);
+}
+
+button {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--purpleGradient);
+    color: #ffffff;
+    text-shadow: slategray;
+    font-size: 30px;
+    font-weight: bold;
+    outline: none;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s;
+    box-shadow: 0 4px 15px rgba(106, 17, 203, 0.5);
+}
+
+button:hover {
+    transform: scale(1.1);
+    background: var(--tealGradient);
+}
+
+#task-list {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    width: 100%;
+    list-style: none;
+}
+
+.taskItem {
+    display: flex;
+    background: rgba(255, 255, 255, 0.15);
+    padding: 15px;
+    border-radius: 10px;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 3px 7px var(--shadow);
+    transition: background 0.3s ease, transform 0.2s;
+}
+
+.taskItem:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: scale(1.02);
+}
+
+.task {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.taskInput {
+    width: 20px;
+    height: 20px;
+    accent-color: #43e97b;
+}
+
+.taskItem img {
+    width: 24px;
+    height: 24px;
+    margin: 0 10px;
+    cursor: pointer;
+    filter: invert(10%) sepia(100%) saturate(100%) hue-rotate(900deg); 
+    transition: transform 0.2s, filter 0.2s;
+}
+
+.taskItem img:hover {
+    transform: scale(1.1);
+    filter: invert(100%) sepia(100%) saturate(900%) hue-rotate(700deg); 
+}
+
+
+.task p.completed {
+    text-decoration: line-through;
+    color: #410dc5;
+}
+
+.completion-message {
+    display: none; 
+    background: linear-gradient(108deg, rgba(251, 251, 45, 0.825) 0.5%, rgba(214, 4, 4, 0.818) 29.8%, rgba(241, 57, 220, 0.8) 59.9%, rgb(95, 11, 228) 84.2%);
+    color: rgb(252, 252, 252);
+    padding: 20px;
+    border-radius: 10px;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 0;
+    animation: jump 1s ease-in-out infinite;
+}
+
+
+@keyframes jump {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
